@@ -1,4 +1,4 @@
-module mmdbgeo
+module github.com/nelttjen/mmdb-lib
 
 go 1.23.0
 
