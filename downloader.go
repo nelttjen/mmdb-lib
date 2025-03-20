@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	// he deletes releases
+	// he deletes releasesm replace todo
 	MMDBASNDownloadLink     = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.02.25/GeoLite2-ASN.mmdb"
 	MMDBCityDownloadLink    = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.02.25/GeoLite2-City.mmdb"
 	MMDBCountryDownloadLink = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.02.25/GeoLite2-Country.mmdb"
@@ -35,9 +35,9 @@ func checkDBs(senderr chan error) {
 		wg.Add(3)
 
 		// removed root dir
-		go checkAndDownload(fmt.Sprintf("%s/%s/%s", "", DBsPath, MMDBASNName), MMDBASNDownloadLink, &wg, senderr)
-		go checkAndDownload(fmt.Sprintf("%s/%s/%s", "", DBsPath, MMDBCityName), MMDBCityDownloadLink, &wg, senderr)
-		go checkAndDownload(fmt.Sprintf("%s/%s/%s", "", DBsPath, MMDBCountryName), MMDBCountryDownloadLink, &wg, senderr)
+		go checkAndDownload(fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBASNName), MMDBASNDownloadLink, &wg, senderr)
+		go checkAndDownload(fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBCityName), MMDBCityDownloadLink, &wg, senderr)
+		go checkAndDownload(fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBCountryName), MMDBCountryDownloadLink, &wg, senderr)
 		wg.Wait()
 	} else {
 		log.Printf("[INFO] Download geolite dbs has been disabled.")

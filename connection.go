@@ -68,9 +68,9 @@ type FullConnection struct {
 }
 
 func (fc *FullConnection) Init(ctx context.Context, interval time.Duration) {
-	asnPath := fmt.Sprintf("%s/%s", DBsPath, MMDBASNName)
-	countryPath := fmt.Sprintf("%s/%s", DBsPath, MMDBCountryName)
-	geoPath := fmt.Sprintf("%s/%s", DBsPath, MMDBCityName)
+	asnPath := fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBASNName)
+	countryPath := fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBCountryName)
+	geoPath := fmt.Sprintf("%s/%s/%s", rootDir, DBsPath, MMDBCityName)
 
 	fc.Asn = &Connection{}
 	fc.Country = &Connection{}
